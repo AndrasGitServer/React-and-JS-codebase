@@ -1,0 +1,70 @@
+<!--
+    2020 May 5 Tuesday
+
+    Load (include) REACT with CDN (external JavaScript via internet)
+
+    REACT is a JS library, so we can plug-it right into HTML
+    within <script></script> tags.
+
+
+    
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REACT CDN</title>
+
+    <!-- REACT CDN within HTML -->
+
+    <script crossorigin="" src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin="" src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script> 
+
+</head>
+
+<body>
+    
+    <div id="root"></div>
+
+    <div id="id_p"></div>
+    
+</body>
+
+<script>
+
+
+    // ***** Custom REACT script *****
+
+    // Element is a basic component with 3 parameters
+
+    // Create the element with 3 parameters
+
+    //     parameter 1                   parameter 2                        parameter 3
+    // (   kind_of_elemen_html_tag   ,   props_can_be_an_empty_object   ,   children_are_items_within_parameter_1   )
+
+    const Basic_component = React.createElement( "h1" , {} , "First React basic component = Element" );
+    
+    const Nested_basic_component = React.createElement( "div" , {} , React.createElement("p", {}, "This element is nested") );
+
+
+
+
+    // Display our basic component in the HTML body section where id="root"
+    // Render with 2 parameters
+
+    //               parameter 1     , parameter 2
+    ReactDOM.render( Basic_component , document.getElementById("root") );
+
+
+
+    // Display our basic component in the HTML body section where id="id_p"
+
+    ReactDOM.render( Nested_basic_component , document.getElementById("id_p") );
+
+
+
+</script>
+
+</html>
