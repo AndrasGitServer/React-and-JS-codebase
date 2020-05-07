@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+form {
+  background-color: #282c34;
+  margin: 10px;
+  padding: 10px;
+}
+
+input {
+  font-size: 23px;
+  margin: 10px;
+  box-shadow:grey 3px 3px;
+}
+
+label{
+  font-size: 23px;
+  margin: 10px;
+  text-shadow: aqua 1px 1px; 
+}
+
+div {
+  background-color: cyan;
+}
+
+
