@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+}
+
+form {
+  background-color: rgb(223, 151, 71);
+  margin: 10px;
+  padding: 10px;
+  border: black solid 2px;
+}
+
+input {
+  font-size: 23px;
+  margin: 10px;
+  box-shadow:black 3px 3px;
+}
+
+label{
+  font-size: 23px;
+  margin: 10px;
+  text-shadow: red 1px 1px; 
+}
+
