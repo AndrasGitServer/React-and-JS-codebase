@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+}
+
+pre , textarea {
+  font-size: 23px;
+  background-color: orange;
+}
+
+input{
+  font-size: 23px;
+  margin: 20px;
+  background-color: rgb(247, 142, 142);
+}
