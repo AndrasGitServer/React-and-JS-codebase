@@ -1,0 +1,67 @@
+Promises (is a design pattern) (control asynchronous code flow)
+****************************** ********************************
+
+With JavaScript we have been writing code that is synchronous.
+
+JavaScript will run our code line by line 
+and it waits for whatever is being executed to finish before moving on to the next line. 
+
+However, as we start exploring getting information from either outside sources (internet),
+or our own Back-End server, 
+we need to be able to write code that gracefully receives data, 
+which often can take an indeterminate amount of time to arrive, 
+and doesn't lock up the app while it waits for the data to come back.
+
+A new concept, a design pattern called Promises. 
+                 *******************************
+
+A promise waits for the eventual response 
+(and how long it will take to receive it) is not known.
+
+Promises in JavaScript represent processes which are already happening, 
+which can be chained with callback functions
+
+
+A promise is said to be settled if it is either fulfilled or rejected, but not pending. 
+                        *******
+
+You will also hear the term resolved used with promises
+— this means that the promise is settled or “locked in” to match the state of another promise.
+
+----------------------------------------------------------------------
+Promises have 3 states, and it is in only 1 at a time (in any time):
+
+Pending	
+*******
+the outcome is not yet determined	
+
+Resolved (settled)
+********
+the outcome is completed successfully	
+
+Rejected (settled)
+********
+the outcome is completed with errors
+----------------------------------------------------------------------
+
+
+While the promise is unfulfilled any code that comes after it is free to run. 
+
+We also have two distinct methods that get called 
+where we handle the case where the promise is resolved .then() and 
+the case where the promise is rejected .catch(). 
+
+Advantages of Promises
+Better control of asynchronous code flow
+Easy to read
+Avoiding callback after callback spaghetti.
+
+----------------------------------------------------------------------
+
+fetch() JavaScript can send (make) network requests to the server and load new information
+                                   ****************
+whenever it arrives back.
+
+fetch() API uses Promises.
+
+

@@ -1,0 +1,129 @@
+<!--
+    2020 May 11 Monday
+    
+    fetch() can send (make) network requests to the server and load new information
+                            ****************
+    whenever it arrives back.
+
+    fetch() API uses Promises.
+
+    When we make a fetch request, 
+    the response will be given a response.type of "basic", "cors" or "opaque". 
+    These types indicate where the resource has come from 
+    and can be used to inform how you should treat the response object.
+
+    When we make a fetch request, the response will be given a response.type of "basic", "cors" or "opaque". These types indicate where the resource has come from and can be used to inform how you should treat the response object.
+
+    When we make a fetch request, 
+    the response will be given a response.type of "basic", "cors" or "opaque". 
+    
+    These types indicate where the resource has come from and can be used to inform how you 
+    should treat the response object.
+    When a request is made for a resource on the same origin, 
+    the response will have a basic type and there aren't any restrictions
+    on what you can view from the response.
+-->
+
+<script>
+
+// When we use the fetch() method a promise is returned, that is why we can use .then() afterwards.
+fetch('http://www.official-joke-api.appspot.com/random_joke')
+    
+    .then(
+        
+        function(response) {
+
+            //Response Metadata
+
+            console.log( response.status );         // 200 is the status of the response object (Stream object)
+            console.log( response.url);             // We get the URL same like above
+            console.log( response.statusText);      // OK
+            console.log( response.type);            // cors
+            
+
+            if (response.status !== 200) {
+                console.log('Looks like there was a problem. Status Code:');
+                console.log( response.status );
+                return;
+            }
+
+            // Examine the text in the response
+            // We parse the response as JSON.
+            // The response of a fetch() request is a Stream object,
+            // which means that when we call the json() method, 
+            // another Promise is returned since the reading of the stream will happen asynchronously.
+            response.json().then(function(data) {
+                console.log(data);
+            });
+
+        }
+    )
+
+    .catch(function(err) {
+        console.log('Fetch Error :-S', err);
+    });
+
+
+console.log('** 67 line number, Example with a return statement, and you can use .then() after **');
+
+
+fetch('http://www.official-joke-api.appspot.com/random_joke', {mode: 'cors'})
+
+    .then(function(response) {
+        console.log('\n** 73 line number, Example with a return statement, and you can use .then() after **');
+        // Similar to response.json()
+        return response.text();
+
+    })
+
+    .then(function( text ) {
+        console.log('Request successful !');
+        console.log( text ); 
+    })
+
+    .catch(function( error ) {
+        console.log('Request failed', error)
+    });
+
+//////////////////////////////////////////////////////////////////////
+// Another example:
+
+
+function status(response) {
+  if (response.status >= 200 && response.status < 300) {
+    return Promise.resolve(response)
+  } else {
+    return Promise.reject(new Error(response.statusText))
+  }
+}
+
+
+function json(response) {
+  return response.json()
+}
+
+
+fetch('http://www.official-joke-api.appspot.com/random_joke')
+    .then(status)
+    .then(json)
+    .then(function(data) {
+        console.log('\nRequest succeeded with JSON response', data);
+    })
+    .catch(function(error) {
+        console.log('Request failed', error);
+    });
+
+/*
+We define the status function which checks the response.status and returns the result
+of Promise.resolve() or Promise.reject(), which return a resolved or rejected Promise. 
+This is the first method called in our fetch() chain, 
+if it resolves, we then call our json() method which again returns a Promise
+from the response.json() call. 
+After this we have an object of the parsed JSON. 
+If the parsing fails the Promise is rejected and the catch statement executes.
+
+The great thing with this is that you can share the logic across all of your fetch requests, 
+making code easier to maintain, read and test.
+*/
+
+</script>
