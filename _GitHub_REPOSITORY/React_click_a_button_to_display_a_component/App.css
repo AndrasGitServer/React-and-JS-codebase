@@ -1,0 +1,19 @@
+.App {
+  text-align: center;
+}
+
+button {
+  font-size: 28px;
+  margin: 20px;
+  background-color: cyan;
+  box-shadow: black 2px 2px;
+}
+
+h3 {
+  background-color: yellow;
+}
+
+span {
+  background-color: magenta;
+  font-size: 28px;
+}
