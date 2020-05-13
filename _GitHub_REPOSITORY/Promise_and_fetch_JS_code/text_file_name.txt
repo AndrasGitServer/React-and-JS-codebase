@@ -1,3 +1,5 @@
+Use this file with:   5_JS_code_openfilewithfetch.html
+
 Example
 
 Greetings from a .txt file !
