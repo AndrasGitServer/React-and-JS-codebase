@@ -1,0 +1,5 @@
+Example
+
+Greetings from a .txt file !
+
+EOF

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS fetch()</title>
+</head>
+
+<body>
+    <!-- 2020 May 13 Wednesday -->
+</body>
+
+<script>
+
+    https://www.youtube.com/watch?v=OWxVjS3yD1c
+
+    // fetch() needs a web server or Live Server, local or remote
+
+    // fetch('text_file_name.txt')              // .txt file name in the same folder
+    // .then(response => response.text())
+    // .then(data=> console.log(data))          // Open browser's JS console
+
+
+    fetch('text_file_name.txt')
+
+    .then( function(response) {
+        console.log( response );
+        console.log( response.status );         // 200 is the status of the response object (Stream object)
+        console.log( response.statusText );     // OK   or   Not Found
+        console.log( response.url );            // We get the URL same like above
+        console.log( response.type );           // cors   or   basic    or   ...
+            
+        if (response.status !== 200) {
+            console.log('Looks like there was a problem... ');
+            console.log('Status Code:', response.status );
+            return;
+        } else {
+            console.log( '** response.status =', response.status)
+        }
+
+        // console.log( response.text() );      important: this statement can not be together
+        return response.text();                 // with the return !! 
+    })
+
+    .then( function(data) {
+        console.log(data);
+    })
+
+    .catch( error => console.error(error) );
+
+
+</script>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
